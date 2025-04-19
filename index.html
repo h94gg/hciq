@@ -555,7 +555,10 @@
       }
       document.getElementById('score').innerText =
         "Your score: " + score + " / " + correctAnswers.length;
-        
+      if (score <25)(
+          document.getElementById('score').style.color = 'red'
+
+        ) ;        
     }
   </script>
   
