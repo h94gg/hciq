@@ -2,431 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Deadlock Quiz - Exact Full</title>
-<style>
-body { font-family: Arial; background:#f4f6f8; padding:20px; }
-.question { background:white; padding:15px; margin-bottom:15px; border-radius:10px; }
-button {
-    display:block; margin:5px 0; padding:10px; width:100%;
-    border:none; border-radius:6px; cursor:pointer; background:#eee;
-}
-.correct { background:#4CAF50; color:white; }
-.wrong { background:#f44336; color:white; }
-#result { font-size:20px; margin-top:20px; font-weight:bold; }
-</style>
-</head>
+<title>Cloud Computing Quiz</title>
 
+<style>
+body { font-family: Arial; padding: 20px; background: #f4f6f8; }
+.question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 10px; }
+.correct { background-color: #c8f7c5; }
+.wrong { background-color: #f7c5c5; }
+button { display:block; margin:5px 0; }
+.result { margin-top:10px; font-weight:bold; }
+#scoreBox { font-size:22px; margin-bottom:20px; }
+</style>
+
+</head>
 <body>
 
-<h2>Deadlock MCQ - Full Exact Quiz</h2>
-<div id="quiz"></div>
-<div id="result"></div>
+<h2 id="scoreBox">Score: 0 / 20</h2>
+
+<h3>True or False Questions</h3>
+
+<div class="question" data-ar="الحوسبة السحابية تحول تقنية المعلومات من منتج إلى خدمة">
+<p>1. Cloud computing transforms IT from a product to a service.</p>
+<button onclick="check(this,true)">True</button>
+<button onclick="check(this,false)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="مركز البيانات لا يتكون فقط من الخوادم بل يحتاج تبريد وأمان وإدارة طاقة وشبكات">
+<p>2. A data center consists only of servers and does not require additional infrastructure like cooling or security.</p>
+<button onclick="check(this,false)">True</button>
+<button onclick="check(this,true)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="IaaS يوفر موارد حوسبة مثل الأجهزة الافتراضية والتخزين والشبكات وليس تطبيقات كاملة">
+<p>3. Infrastructure-as-a-Service (IaaS) provides users with a complete software application over the internet.</p>
+<button onclick="check(this,false)">True</button>
+<button onclick="check(this,true)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="السحابة الخاصة أكثر أمانًا لأنها تحت سيطرة المنظمة">
+<p>4. Public clouds offer more security than private clouds.</p>
+<button onclick="check(this,false)">True</button>
+<button onclick="check(this,true)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="تطبيقات SaaS تعمل عبر المتصفح ولا تحتاج تثبيت">
+<p>5. SaaS applications require users to install software on their personal computers.</p>
+<button onclick="check(this,false)">True</button>
+<button onclick="check(this,true)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="Blade server نوع من الخوادم مصمم للكثافة العالية داخل مراكز البيانات">
+<p>6. A blade server is a type of server designed for modularity and high density in data centers.</p>
+<button onclick="check(this,true)">True</button>
+<button onclick="check(this,false)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="الافتراضية تقنية أساسية في الحوسبة السحابية">
+<p>7. Virtualization is a key technology enabling IaaS in cloud computing.</p>
+<button onclick="check(this,true)">True</button>
+<button onclick="check(this,false)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="حوالي 80٪ من حركة الشبكة تبقى داخل مركز البيانات">
+<p>8. Most data center network traffic stays inside the data center rather than going to external networks.</p>
+<button onclick="check(this,true)">True</button>
+<button onclick="check(this,false)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="لا يزال هناك حاجة لموظفي IT في الحوسبة السحابية">
+<p>9. The main benefit of cloud computing is reducing the need for IT personnel.</p>
+<button onclick="check(this,false)">True</button>
+<button onclick="check(this,true)">False</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="EC2 مثال على IaaS وليس SaaS">
+<p>10. Amazon Web Services (AWS) Elastic Compute Cloud (EC2) is an example of a SaaS product.</p>
+<button onclick="check(this,false)">True</button>
+<button onclick="check(this,true)">False</button>
+<div class="result"></div>
+</div>
+
+<h3>Cloud Computing – Choose the best Answers</h3>
+
+<div class="question" data-ar="الميزة الأساسية هي الخدمة الذاتية عند الطلب">
+<p>11. What is a fundamental characteristic of cloud computing?</p>
+<button onclick="check(this,false)">a) Manual resource allocation</button>
+<button onclick="check(this,false)">b) Limited scalability</button>
+<button onclick="check(this,true)">c) On-demand self-service</button>
+<button onclick="check(this,false)">d) High cost for all users</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="HaaS ليس من نماذج الخدمات السحابية">
+<p>12. Which of the following is NOT a cloud service model?</p>
+<button onclick="check(this,false)">a) Software-as-a-Service (SaaS)</button>
+<button onclick="check(this,false)">b) Platform-as-a-Service (PaaS)</button>
+<button onclick="check(this,false)">c) Infrastructure-as-a-Service (IaaS)</button>
+<button onclick="check(this,true)">d) Hardware-as-a-Service (HaaS)</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="الافتراضية تعزل الموارد وتحسن استخدامها">
+<p>13. What is the primary benefit of virtualization in cloud computing?</p>
+<button onclick="check(this,false)">a) Increased physical hardware usage</button>
+<button onclick="check(this,false)">b) Increased operational cost</button>
+<button onclick="check(this,true)">c) Resource isolation and efficient utilization</button>
+<button onclick="check(this,false)">d) Decreased server availability</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="السحابة الهجينة تجمع بين العامة والخاصة">
+<p>14. Which cloud model allows an organization to use both private and public clouds?</p>
+<button onclick="check(this,true)">a) Hybrid cloud</button>
+<button onclick="check(this,false)">b) Private cloud</button>
+<button onclick="check(this,false)">c) Public cloud</button>
+<button onclick="check(this,false)">d) Community cloud</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="Load Balancer يوزع حركة الشبكة على عدة خوادم">
+<p>15. What does a Load Balancer do in a cloud environment?</p>
+<button onclick="check(this,true)">a) Distributes incoming network traffic across multiple servers</button>
+<button onclick="check(this,false)">b) Increases network latency</button>
+<button onclick="check(this,false)">c) Decreases security in data centers</button>
+<button onclick="check(this,false)">d) Reduces server performance</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="السحابة الخاصة مملوكة لمنظمة واحدة">
+<p>16. Which type of cloud is owned and used by a single organization?</p>
+<button onclick="check(this,false)">a) Public cloud</button>
+<button onclick="check(this,true)">b) Private cloud</button>
+<button onclick="check(this,false)">c) Hybrid cloud</button>
+<button onclick="check(this,false)">d) Community cloud</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="Google Docs مثال على SaaS">
+<p>17. What is an example of SaaS?</p>
+<button onclick="check(this,false)">a) Microsoft Azure</button>
+<button onclick="check(this,true)">b) Google Docs</button>
+<button onclick="check(this,false)">c) VMware</button>
+<button onclick="check(this,false)">d) OpenStack</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="PaaS يسمح بنشر التطبيقات بدون إدارة العتاد">
+<p>18. What is a key feature of PaaS?</p>
+<button onclick="check(this,false)">a) Provides computing infrastructure only</button>
+<button onclick="check(this,true)">b) Allows developers to deploy applications without managing underlying hardware</button>
+<button onclick="check(this,false)">c) Only provides storage services</button>
+<button onclick="check(this,false)">d) It does not allow application development</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="أحد العيوب هو الاعتماد على الإنترنت">
+<p>19. Which of the following is a disadvantage of cloud computing?</p>
+<button onclick="check(this,false)">a) High initial infrastructure cost</button>
+<button onclick="check(this,false)">b) Limited availability of services</button>
+<button onclick="check(this,true)">c) Dependency on internet connectivity</button>
+<button onclick="check(this,false)">d) Poor scalability</button>
+<div class="result"></div>
+</div>
+
+<div class="question" data-ar="مركز البيانات يستضيف الخدمات ويدير الموارد">
+<p>20. What is the main role of a data center in cloud computing?</p>
+<button onclick="check(this,false)">a) Storing local files for personal use</button>
+<button onclick="check(this,true)">b) Hosting cloud services and managing resources</button>
+<button onclick="check(this,false)">c) Reducing computing power of organizations</button>
+<button onclick="check(this,false)">d) Eliminating the need for networking</button>
+<div class="result"></div>
+</div>
 
 <script>
-const quizData = [
-
-{
-q:`1. Which of the following condition is required for a deadlock to be possible?`,
-o:[
-"a) mutual exclusion",
-"b) a process may hold allocated resources while awaiting assignment of other resources",
-"c) no resource can be forcibly removed from a process holding it",
-"d) all of the mentioned"
-],a:3},
-
-{
-q:`2. A system is in the safe state if ____________`,
-o:[
-"a) the system can allocate resources to each process in some order and still avoid a deadlock",
-"b) there exist a safe sequence",
-"c) all of the mentioned",
-"d) none of the mentioned"
-],a:2},
-
-{
-q:`3. The circular wait condition can be prevented by ____________`,
-o:[
-"a) defining a linear ordering of resource types",
-"b) using thread",
-"c) using pipes",
-"d) all of the mentioned"
-],a:0},
-
-{
-q:`4. Which one of the following is the deadlock avoidance algorithm?`,
-o:[
-"a) banker’s algorithm",
-"b) round-robin algorithm",
-"c) elevator algorithm",
-"d) karn’s algorithm"
-],a:0},
-
-{
-q:`5. What is the drawback of banker’s algorithm?`,
-o:[
-"a) in advance processes rarely know how much resource they will need",
-"b) the number of processes changes as time progresses",
-"c) resource once available can disappear",
-"d) all of the mentioned"
-],a:3},
-
-{
-q:`6. For an effective operating system, when to check for deadlock?`,
-o:[
-"a) every time a resource request is made",
-"b) at fixed time intervals",
-"c) every time a resource request is made at fixed time intervals",
-"d) none of the mentioned"
-],a:2},
-
-{
-q:`7. Which one of the following is a visual ( mathematical ) way to determine the deadlock occurrence?`,
-o:[
-"a) resource allocation graph",
-"b) starvation graph",
-"c) inversion graph",
-"d) none of the mentioned"
-],a:0},
-
-{
-q:`8. To avoid deadlock ____________`,
-o:[
-"a) there must be a fixed number of resources to allocate",
-"b) resource allocation must be done only once",
-"c) all deadlocked processes must be aborted",
-"d) inversion technique can be used"
-],a:0},
-
-{
-q:`9. The wait-for graph is a deadlock detection algorithm that is applicable when ____________`,
-o:[
-"a) all resources have a single instance",
-"b) all resources have multiple instances",
-"c) all resources have a single & multiple instances",
-"d) all of the mentioned"
-],a:0},
-
-{
-q:`10. An edge from process Pi to Pj in a wait for graph indicates that ____________`,
-o:[
-"a) Pi is waiting for Pj to release a resource that Pi needs",
-"b) Pj is waiting for Pi to release a resource that Pj needs",
-"c) Pi is waiting for Pj to leave the system",
-"d) Pj is waiting for Pi to leave the system"
-],a:0},
-
-{
-q:`11. If the wait for graph contains a cycle ____________`,
-o:[
-"a) then a deadlock does not exist",
-"b) then a deadlock exists",
-"c) then the system is in a safe state",
-"d) either deadlock exists or system is in a safe state"
-],a:1},
-
-{
-q:`12. If deadlocks occur frequently, the detection algorithm must be invoked ________`,
-o:[
-"a) rarely",
-"b) frequently",
-"c) rarely & frequently",
-"d) none of the mentioned"
-],a:1},
-
-{
-q:`13. What is the disadvantage of invoking the detection algorithm for every request?`,
-o:[
-"a) overhead of the detection algorithm due to consumption of memory",
-"b) excessive time consumed in the request to be allocated memory",
-"c) considerable overhead in computation time",
-"d) all of the mentioned"
-],a:2},
-
-{
-q:`14. A deadlock eventually cripples system throughput and will cause the CPU utilization to ______`,
-o:[
-"a) increase",
-"b) drop",
-"c) stay still",
-"d) none of the mentioned"
-],a:1},
-
-{
-q:`15. Every time a request for allocation cannot be granted immediately, the detection algorithm is invoked. This will help identify ____________`,
-o:[
-"a) the set of processes that have been deadlocked",
-"b) the set of processes in the deadlock queue",
-"c) the specific process that caused the deadlock",
-"d) all of the mentioned"
-],a:0},
-
-{
-q:`16. A computer system has 6 tape drives, with ‘n’ processes competing for them. Each process may need 3 tape drives. The maximum value of ‘n’ for which the system is guaranteed to be deadlock free is?`,
-o:["a) 2","b) 3","c) 4","d) 1"],a:0},
-
-{
-q:`17. A system has 3 processes sharing 4 resources. If each process needs a maximum of 2 units then, deadlock ____________`,
-o:["a) can never occur","b) may occur","c) has to occur","d) none of the mentioned"],a:0},
-
-{
-q:`18. ‘m’ processes share ‘n’ resources of the same type. The maximum need of each process doesn’t exceed ‘n’ and the sum of all their maximum needs is always less than m+n. In this setup, deadlock ____________`,
-o:["a) can never occur","b) may occur","c) has to occur","d) none of the mentioned"],a:0},
-
-{
-q:`19. A deadlock can be broken by ____________`,
-o:[
-"a) abort one or more processes to break the circular wait",
-"b) abort all the process in the system",
-"c) preempt all resources from all processes",
-"d) none of the mentioned"
-],a:0},
-
-{
-q:`20. The two ways of aborting processes and eliminating deadlocks are ____________`,
-o:[
-"a) Abort all deadlocked processes",
-"b) Abort all processes",
-"c) Abort one process at a time until the deadlock cycle is eliminated",
-"d) All of the mentioned"
-],a:2},
-
-{
-q:`21. Those processes should be aborted on occurrence of a deadlock, the termination of which?`,
-o:[
-"a) is more time consuming",
-"b) incurs minimum cost",
-"c) safety is not hampered",
-"d) all of the mentioned"
-],a:1},
-
-{
-q:`22. The process to be aborted is chosen on the basis of the following factors?`,
-o:[
-"a) priority of the process",
-"b) process is interactive or batch",
-"c) how long the process has computed",
-"d) all of the mentioned"
-],a:3},
-
-{
-q:`23. Cost factors for process termination include ____________`,
-o:[
-"a) Number of resources the deadlock process is not holding",
-"b) CPU utilization at the time of deadlock",
-"c) Amount of time a deadlocked process has thus far consumed during its execution",
-"d) All of the mentioned"
-],a:2},
-
-{
-q:`24. A state is safe, if ____________`,
-o:[
-"a) the system does not crash due to deadlock occurrence",
-"b) the system can allocate resources to each process in some order and still avoid a deadlock",
-"c) the state keeps the system protected and safe",
-"d) all of the mentioned"
-],a:1},
-
-{
-q:`25. A system is in a safe state only if there exists a ____________`,
-o:[
-"a) safe allocation",
-"b) safe resource",
-"c) safe sequence",
-"d) all of the mentioned"
-],a:2},
-
-{
-q:`26. All unsafe states are ____________`,
-o:[
-"a) deadlocks",
-"b) not deadlocks",
-"c) fatal",
-"d) none of the mentioned"
-],a:1},
-
-{
-q:`27. A system has 12 magnetic tape drives and 3 processes : P0, P1, and P2.
-Process P0 requires 10 tape drives, P1 requires 4 and P2 requires 9 tape
-drives.
-Process
-P0
-P1
-P2
-Maximum needs (process-wise: P0 through P2 top to bottom)
-10
-4
-9
-Currently allocated (process-wise)
-5
-2
-2
-Which of the following sequence is a safe sequence?`,
-o:[
-"a) P0, P1, P2",
-"b) P1, P2, P0",
-"c) P2, P0, P1",
-"d) P1, P0, P2"
-],a:3},
-
-{
-q:`28. If no cycle exists in the resource allocation graph ____________`,
-o:[
-"a) then the system will not be in a safe state",
-"b) then the system will be in a safe state",
-"c) all of the mentioned",
-"d) none of the mentioned"
-],a:1},
-
-{
-q:`29. The resource allocation graph is not applicable to a resource allocation system ____________`,
-o:[
-"a) with multiple instances of each resource type",
-"b) with a single instance of each resource type",
-"c) single & multiple instances of each resource type",
-"d) none of the mentioned"
-],a:0},
-
-{
-q:`30. The Banker’s algorithm is _____________ than the resource allocation graph algorithm.`,
-o:[
-"a) less efficient",
-"b) more efficient",
-"c) equal",
-"d) none of the mentioned"
-],a:0},
-
-{
-q:`31. The data structures available in the Banker’s algorithm are ____________`,
-o:[
-"a) Available",
-"b) Need",
-"c) Allocation",
-"d) All of the mentioned"
-],a:3},
-
-{
-q:`32. The content of the matrix Need is ____________`,
-o:[
-"a) Allocation – Available",
-"b) Max – Available",
-"c) Max – Allocation",
-"d) Allocation – Max"
-],a:2},
-
-{
-q:`33. A system with 5 processes P0 through P4 and three resource types A, B,
-C have A with 10 instances, B with 5 instances, and C with 7 instances. At
-time t0, the following snapshot has been taken:
-Process
-P0
-P1
-P2
-P3
-P4
-Allocation (process-wise : P0 through P4 top TO bottom)
-A B C
-0 1 0
-2 0 0
-3 0 2
-2 1 1
-0 0 2
-MAX (process-wise: P0 through P4 top TO bottom)
-A B C
-7 5 3
-3 2 2
-9 0 2
-2 2 2
-4 3 3
-Available
-A B C
-3 3 2
-The sequence <P1, P3, P4, P2, P0> leads the system to ____________`,
-o:[
-"a) an unsafe state",
-"b) a safe state",
-"c) a protected state",
-"d) a deadlock"
-],a:1},
-
-{
-q:`34. At least one resource must be held in a nonsharable mode... This condition for deadlock is referred to as:`,
-o:["A. Mutual exclusion","B. Hold and wait","C. No preemption","D. Circular wait"],a:0},
-
-{
-q:`35. A process must be holding at least one resource and waiting... This condition is referred to as:`,
-o:["A. Mutual exclusion","B. Hold and wait","C. No preemption","D. Circular wait"],a:1},
-
-{
-q:`36. Resources cannot be preempted... This condition is referred to as:`,
-o:["A. Mutual exclusion","B. Hold and wait","C. No preemption","D. Circular wait"],a:2},
-
-{
-q:`37. A set {P0, P1, ..., Pn}... circular chain. This condition is referred to as:`,
-o:["A. Mutual exclusion","B. Mutual exclusion","C. No preemption","D. Circular wait"],a:3},
-
-{
-q:`38. Deadlocks can be described more precisely in terms of a directed graph called a`,
-o:["A. Bar graph","B. system resource-allocation graph","C. Pie charts","D. Line graphs"],a:1},
-
-{
-q:`39. Which of the following statements is TRUE for dealing with the
-deadlock problem:
-1. We can use a protocol to prevent or avoid deadlocks, ensuring that the
-system will never enter a deadlocked state.
-2. We can allow the system to enter a deadlocked state, detect it, and
-recover.
-3. We can ignore the problem altogether and pretend that deadlocks
-never occur in the system.`,
-o:["A. 1","B. 1,2","C. 1,2,3","D. None of the above"],a:2},
-
-{
-q:`40. To ensure that deadlocks never occur, the system can use
-1. deadlock prevention scheme
-2. deadlock-avoidance scheme
-3. deadlock-detection scheme
-4. deadlock-recovery scheme`,
-o:["A. 1,2","B. 1,2,3","C. 3,4","D. 1,2,3,4"],a:0}
-
-];
-
 let score = 0;
-const quiz = document.getElementById("quiz");
+let total = 20;
 
-quizData.forEach((qData) => {
-    const div = document.createElement("div");
-    div.classList.add("question");
+function check(btn, correct) {
+    let parent = btn.parentElement;
 
-    const title = document.createElement("h4");
-    title.innerText = qData.q;
-    div.appendChild(title);
+    if (parent.classList.contains("answered")) return;
+    parent.classList.add("answered");
 
-    qData.o.forEach((opt, i) => {
-        const btn = document.createElement("button");
-        btn.innerText = opt;
+    let resultBox = parent.querySelector(".result");
+    let translation = parent.getAttribute("data-ar");
 
-        btn.onclick = () => {
-            const buttons = div.querySelectorAll("button");
-            buttons.forEach(b => b.disabled = true);
+    if (correct) {
+        parent.classList.add("correct");
+        score++;
+        resultBox.innerHTML = "✅ Correct | صحيح<br>" + translation;
+    } else {
+        parent.classList.add("wrong");
+        resultBox.innerHTML = "❌ Wrong | خطأ<br>" + translation;
+    }
 
-            if(i === qData.a){
-                btn.classList.add("correct");
-                score++;
-            } else {
-                btn.classList.add("wrong");
-                buttons[qData.a].classList.add("correct");
-            }
-
-            if(document.querySelectorAll("button:disabled").length === quizData.length * 4){
-                document.getElementById("result").innerText =
-                "Your Score: " + score + " / " + quizData.length;
-            }
-        };
-
-        div.appendChild(btn);
-    });
-
-    quiz.appendChild(div);
-});
+    document.getElementById("scoreBox").innerText = "Score: " + score + " / " + total;
+}
 </script>
 
 </body>
