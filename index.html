@@ -16,6 +16,7 @@ body {
 .container {
     max-width: 900px;
     margin: auto;
+    padding-bottom: 80px;
 }
 
 #scoreBox {
@@ -52,6 +53,24 @@ button {
 
 h3 { color: white; }
 
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 </style>
 </head>
 
@@ -69,49 +88,49 @@ h3 { color: white; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="مركز البيانات يحتاج تبريد وأمان وشبكات">
+<div class="question" data-ar="مركز البيانات لا يقتصر على الخوادم بل يحتاج تبريد وأمان وشبكات">
 <p>2. A data center consists only of servers and does not require additional infrastructure like cooling or security.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="IaaS لا يوفر تطبيقات كاملة بل موارد">
+<div class="question" data-ar="IaaS يوفر موارد وليس تطبيقات كاملة">
 <p>3. Infrastructure-as-a-Service (IaaS) provides users with a complete software application over the internet.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="السحابة الخاصة أكثر أماناً">
+<div class="question" data-ar="السحابة الخاصة أكثر أمانًا">
 <p>4. Public clouds offer more security than private clouds.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="SaaS لا يحتاج تثبيت">
+<div class="question" data-ar="SaaS يعمل عبر المتصفح بدون تثبيت">
 <p>5. SaaS applications require users to install software on their personal computers.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Blade server كثافة عالية">
+<div class="question" data-ar="Blade server مصمم للكثافة العالية">
 <p>6. A blade server is a type of server designed for modularity and high density in data centers.</p>
 <button onclick="check(this,true)">True</button>
 <button onclick="check(this,false)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Virtualization أساسي">
+<div class="question" data-ar="Virtualization تقنية أساسية">
 <p>7. Virtualization is a key technology enabling IaaS in cloud computing.</p>
 <button onclick="check(this,true)">True</button>
 <button onclick="check(this,false)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="معظم الترافيك داخلي">
+<div class="question" data-ar="معظم حركة البيانات داخل المركز">
 <p>8. Most data center network traffic stays inside the data center rather than going to external networks.</p>
 <button onclick="check(this,true)">True</button>
 <button onclick="check(this,false)">False</button>
@@ -134,7 +153,7 @@ h3 { color: white; }
 
 <h3>Choose the best Answers</h3>
 
-<div class="question" data-ar="On-demand self-service">
+<div class="question" data-ar="الخدمة عند الطلب">
 <p>11. What is a fundamental characteristic of cloud computing?</p>
 <button onclick="check(this,false)">a) Manual resource allocation</button>
 <button onclick="check(this,false)">b) Limited scalability</button>
@@ -152,7 +171,7 @@ h3 { color: white; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Resource isolation">
+<div class="question" data-ar="عزل الموارد">
 <p>13. What is the primary benefit of virtualization in cloud computing?</p>
 <button onclick="check(this,false)">a) Increased physical hardware usage</button>
 <button onclick="check(this,false)">b) Increased operational cost</button>
@@ -170,7 +189,7 @@ h3 { color: white; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Load Balancer يوزع الحمل">
+<div class="question" data-ar="يوزع الحمل">
 <p>15. What does a Load Balancer do in a cloud environment?</p>
 <button onclick="check(this,true)">a) Distributes incoming network traffic across multiple servers</button>
 <button onclick="check(this,false)">b) Increases network latency</button>
@@ -197,7 +216,7 @@ h3 { color: white; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="PaaS deploy apps">
+<div class="question" data-ar="نشر التطبيقات بدون إدارة العتاد">
 <p>18. What is a key feature of PaaS?</p>
 <button onclick="check(this,false)">a) Provides computing infrastructure only</button>
 <button onclick="check(this,true)">b) Allows developers to deploy applications without managing underlying hardware</button>
@@ -206,7 +225,7 @@ h3 { color: white; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Internet dependency">
+<div class="question" data-ar="الاعتماد على الإنترنت">
 <p>19. Which of the following is a disadvantage of cloud computing?</p>
 <button onclick="check(this,false)">a) High initial infrastructure cost</button>
 <button onclick="check(this,false)">b) Limited availability of services</button>
@@ -215,7 +234,7 @@ h3 { color: white; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Hosting cloud services">
+<div class="question" data-ar="استضافة الخدمات">
 <p>20. What is the main role of a data center in cloud computing?</p>
 <button onclick="check(this,false)">a) Storing local files for personal use</button>
 <button onclick="check(this,true)">b) Hosting cloud services and managing resources</button>
@@ -251,5 +270,11 @@ function check(btn, correct) {
 </script>
 
 </div>
+
+<div class="footer">
+Developed by <strong>حيدر الخفاجي</strong> |
+<a href="https://www.instagram.com/h94g/" target="_blank">Instagram</a>
+</div>
+
 </body>
 </html>
