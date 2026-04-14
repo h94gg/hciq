@@ -2,22 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cloud Computing Quiz</title>
 
 <style>
-body { font-family: Arial; padding: 20px; background: #f4f6f8; }
-.question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 10px; }
-.correct { background-color: #c8f7c5; }
-.wrong { background-color: #f7c5c5; }
-button { display:block; margin:5px 0; }
-.result { margin-top:10px; font-weight:bold; }
-#scoreBox { font-size:22px; margin-bottom:20px; }
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 15px;
+    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+#scoreBox {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.question {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+    color: white;
+}
+
+.correct { background: linear-gradient(135deg, #00b09b, #96c93d) !important; }
+.wrong { background: linear-gradient(135deg, #ff416c, #ff4b2b) !important; }
+
+.result { margin-top: 10px; font-weight: bold; }
+
+h3 { color: white; }
+
 </style>
-
 </head>
-<body>
 
-<h2 id="scoreBox">Score: 0 / 20</h2>
+<body>
+<div class="container">
+
+<div id="scoreBox">Score: 0 / 20</div>
 
 <h3>True or False Questions</h3>
 
@@ -28,72 +69,72 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="مركز البيانات لا يتكون فقط من الخوادم بل يحتاج تبريد وأمان وإدارة طاقة وشبكات">
+<div class="question" data-ar="مركز البيانات يحتاج تبريد وأمان وشبكات">
 <p>2. A data center consists only of servers and does not require additional infrastructure like cooling or security.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="IaaS يوفر موارد حوسبة مثل الأجهزة الافتراضية والتخزين والشبكات وليس تطبيقات كاملة">
+<div class="question" data-ar="IaaS لا يوفر تطبيقات كاملة بل موارد">
 <p>3. Infrastructure-as-a-Service (IaaS) provides users with a complete software application over the internet.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="السحابة الخاصة أكثر أمانًا لأنها تحت سيطرة المنظمة">
+<div class="question" data-ar="السحابة الخاصة أكثر أماناً">
 <p>4. Public clouds offer more security than private clouds.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="تطبيقات SaaS تعمل عبر المتصفح ولا تحتاج تثبيت">
+<div class="question" data-ar="SaaS لا يحتاج تثبيت">
 <p>5. SaaS applications require users to install software on their personal computers.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Blade server نوع من الخوادم مصمم للكثافة العالية داخل مراكز البيانات">
+<div class="question" data-ar="Blade server كثافة عالية">
 <p>6. A blade server is a type of server designed for modularity and high density in data centers.</p>
 <button onclick="check(this,true)">True</button>
 <button onclick="check(this,false)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="الافتراضية تقنية أساسية في الحوسبة السحابية">
+<div class="question" data-ar="Virtualization أساسي">
 <p>7. Virtualization is a key technology enabling IaaS in cloud computing.</p>
 <button onclick="check(this,true)">True</button>
 <button onclick="check(this,false)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="حوالي 80٪ من حركة الشبكة تبقى داخل مركز البيانات">
+<div class="question" data-ar="معظم الترافيك داخلي">
 <p>8. Most data center network traffic stays inside the data center rather than going to external networks.</p>
 <button onclick="check(this,true)">True</button>
 <button onclick="check(this,false)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="لا يزال هناك حاجة لموظفي IT في الحوسبة السحابية">
+<div class="question" data-ar="لا تزال الحاجة لموظفي IT">
 <p>9. The main benefit of cloud computing is reducing the need for IT personnel.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="EC2 مثال على IaaS وليس SaaS">
+<div class="question" data-ar="EC2 هو IaaS">
 <p>10. Amazon Web Services (AWS) Elastic Compute Cloud (EC2) is an example of a SaaS product.</p>
 <button onclick="check(this,false)">True</button>
 <button onclick="check(this,true)">False</button>
 <div class="result"></div>
 </div>
 
-<h3>Cloud Computing – Choose the best Answers</h3>
+<h3>Choose the best Answers</h3>
 
-<div class="question" data-ar="الميزة الأساسية هي الخدمة الذاتية عند الطلب">
+<div class="question" data-ar="On-demand self-service">
 <p>11. What is a fundamental characteristic of cloud computing?</p>
 <button onclick="check(this,false)">a) Manual resource allocation</button>
 <button onclick="check(this,false)">b) Limited scalability</button>
@@ -102,7 +143,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="HaaS ليس من نماذج الخدمات السحابية">
+<div class="question" data-ar="HaaS ليس نموذج">
 <p>12. Which of the following is NOT a cloud service model?</p>
 <button onclick="check(this,false)">a) Software-as-a-Service (SaaS)</button>
 <button onclick="check(this,false)">b) Platform-as-a-Service (PaaS)</button>
@@ -111,7 +152,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="الافتراضية تعزل الموارد وتحسن استخدامها">
+<div class="question" data-ar="Resource isolation">
 <p>13. What is the primary benefit of virtualization in cloud computing?</p>
 <button onclick="check(this,false)">a) Increased physical hardware usage</button>
 <button onclick="check(this,false)">b) Increased operational cost</button>
@@ -120,7 +161,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="السحابة الهجينة تجمع بين العامة والخاصة">
+<div class="question" data-ar="Hybrid cloud">
 <p>14. Which cloud model allows an organization to use both private and public clouds?</p>
 <button onclick="check(this,true)">a) Hybrid cloud</button>
 <button onclick="check(this,false)">b) Private cloud</button>
@@ -129,7 +170,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Load Balancer يوزع حركة الشبكة على عدة خوادم">
+<div class="question" data-ar="Load Balancer يوزع الحمل">
 <p>15. What does a Load Balancer do in a cloud environment?</p>
 <button onclick="check(this,true)">a) Distributes incoming network traffic across multiple servers</button>
 <button onclick="check(this,false)">b) Increases network latency</button>
@@ -138,7 +179,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="السحابة الخاصة مملوكة لمنظمة واحدة">
+<div class="question" data-ar="Private cloud">
 <p>16. Which type of cloud is owned and used by a single organization?</p>
 <button onclick="check(this,false)">a) Public cloud</button>
 <button onclick="check(this,true)">b) Private cloud</button>
@@ -147,7 +188,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="Google Docs مثال على SaaS">
+<div class="question" data-ar="Google Docs SaaS">
 <p>17. What is an example of SaaS?</p>
 <button onclick="check(this,false)">a) Microsoft Azure</button>
 <button onclick="check(this,true)">b) Google Docs</button>
@@ -156,7 +197,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="PaaS يسمح بنشر التطبيقات بدون إدارة العتاد">
+<div class="question" data-ar="PaaS deploy apps">
 <p>18. What is a key feature of PaaS?</p>
 <button onclick="check(this,false)">a) Provides computing infrastructure only</button>
 <button onclick="check(this,true)">b) Allows developers to deploy applications without managing underlying hardware</button>
@@ -165,7 +206,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="أحد العيوب هو الاعتماد على الإنترنت">
+<div class="question" data-ar="Internet dependency">
 <p>19. Which of the following is a disadvantage of cloud computing?</p>
 <button onclick="check(this,false)">a) High initial infrastructure cost</button>
 <button onclick="check(this,false)">b) Limited availability of services</button>
@@ -174,7 +215,7 @@ button { display:block; margin:5px 0; }
 <div class="result"></div>
 </div>
 
-<div class="question" data-ar="مركز البيانات يستضيف الخدمات ويدير الموارد">
+<div class="question" data-ar="Hosting cloud services">
 <p>20. What is the main role of a data center in cloud computing?</p>
 <button onclick="check(this,false)">a) Storing local files for personal use</button>
 <button onclick="check(this,true)">b) Hosting cloud services and managing resources</button>
@@ -209,5 +250,6 @@ function check(btn, correct) {
 }
 </script>
 
+</div>
 </body>
 </html>
