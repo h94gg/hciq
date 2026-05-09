@@ -3,286 +3,434 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cloud Computing Quiz</title>
-
+<title>Full Educational Quiz - Cloud Computing</title>
 <style>
-body {
-    font-family: Arial;
-    margin: 0;
-    padding: 15px;
-    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding-bottom: 80px;
-}
-
-#scoreBox {
-    background: linear-gradient(135deg, #0072ff, #00c6ff);
-    color: white;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 22px;
-    margin-bottom: 20px;
-}
-
-.question {
-    background: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    font-size: 10px;
-}
-.question p{
-    font-size: 15px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #2193b0, #6dd5ed);
-    color: white;
-}
-
-.correct { background: linear-gradient(135deg, #00b09b, #96c93d) !important; }
-.wrong { background: linear-gradient(135deg, #ff416c, #ff4b2b) !important; }
-
-.result { margin-top: 10px; font-weight: bold; }
-
-h3 { color: white; }
-
-/* Footer */
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #0072ff, #00c6ff);
-    color: white;
-    text-align: center;
-    padding: 12px;
-    font-size: 14px;
-
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
-}
-
-.footer a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 15px; background: #0F172A; direction: ltr; }
+    .container { max-width: 800px; margin: auto; padding-bottom: 100px; }
+    #scoreBox { background: linear-gradient(135deg, #0072ff, #00c6ff); color: white; padding: 15px; text-align: center; font-size: 20px; position: sticky; top: 10px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; }
+    .question-card { background: white; padding: 20px; margin-bottom: 20px; box-shadow: 12px 12px 20px -10px rgba(0, 198, 255, 0.7), -12px 12px 20px -10px rgba(0, 114, 255, 0.7), 0px 20px 30px -10px rgba(0, 114, 255, 0.4); border-bottom-left-radius: 20px; border-top-right-radius: 20px;}
+    .q-text { font-size: 18px; font-weight: 600; color: #1c1e21; margin-bottom: 15px; }
+    .translate-btn { background: #34a853; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; margin-bottom: 10px; }
+    .translation-area { display: none; background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 15px; direction: rtl; text-align: right; border-right: 4px solid #34a853; }
+    .option { width: 100%; padding: 12px; margin: 8px 0; border: 2px solid #dadce0; border-radius: 8px; background: #fff; text-align: left; cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; }
+    .option:hover { background: #f8f9fa; border-color: #1a73e8; }
+    .ar-opt { display: none; font-size: 14px; color: #5f6368; margin-top: 4px; direction: rtl; text-align: right; }
+    .correct { background: #d4edda !important; border-color: #28a745 !important; }
+    .wrong { background: #f8d7da !important; border-color: #dc3545 !important; }
+    .result-msg { margin-top: 15px; font-weight: bold; direction: rtl; text-align: right; }
+    h2 { text-align: center; color: #1a73e8; }
+    .footer { position: fixed; bottom: 0; left: 0; width: 100%; background: linear-gradient(135deg, #0072ff, #00c6ff); color: white; text-align: center; padding: 12px; border-top-left-radius: 20px; border-top-right-radius: 20px; }
+    .footer a { text-decoration: none; color: white; }
 </style>
 </head>
-
 <body>
+
 <div class="container">
-
-<div id="scoreBox">Score: 0 / 20</div>
-
-<h3>True or False Questions</h3>
-
-<div class="question" data-ar="الحوسبة السحابية تحول تقنية المعلومات من منتج إلى خدمة">
-<p>1. Cloud computing transforms IT from a product to a service.</p>
-<button onclick="check(this,true)">True</button>
-<button onclick="check(this,false)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="مركز البيانات لا يقتصر على الخوادم بل يحتاج تبريد وأمان وشبكات">
-<p>2. A data center consists only of servers and does not require additional infrastructure like cooling or security.</p>
-<button onclick="check(this,false)">True</button>
-<button onclick="check(this,true)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="IaaS يوفر موارد وليس تطبيقات كاملة">
-<p>3. Infrastructure-as-a-Service (IaaS) provides users with a complete software application over the internet.</p>
-<button onclick="check(this,false)">True</button>
-<button onclick="check(this,true)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="السحابة الخاصة أكثر أمانًا">
-<p>4. Public clouds offer more security than private clouds.</p>
-<button onclick="check(this,false)">True</button>
-<button onclick="check(this,true)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="SaaS يعمل عبر المتصفح بدون تثبيت">
-<p>5. SaaS applications require users to install software on their personal computers.</p>
-<button onclick="check(this,false)">True</button>
-<button onclick="check(this,true)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="Blade server مصمم للكثافة العالية">
-<p>6. A blade server is a type of server designed for modularity and high density in data centers.</p>
-<button onclick="check(this,true)">True</button>
-<button onclick="check(this,false)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="Virtualization تقنية أساسية">
-<p>7. Virtualization is a key technology enabling IaaS in cloud computing.</p>
-<button onclick="check(this,true)">True</button>
-<button onclick="check(this,false)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="معظم حركة البيانات داخل المركز">
-<p>8. Most data center network traffic stays inside the data center rather than going to external networks.</p>
-<button onclick="check(this,true)">True</button>
-<button onclick="check(this,false)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="لا تزال الحاجة لموظفي IT">
-<p>9. The main benefit of cloud computing is reducing the need for IT personnel.</p>
-<button onclick="check(this,false)">True</button>
-<button onclick="check(this,true)">False</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="EC2 هو IaaS">
-<p>10. Amazon Web Services (AWS) Elastic Compute Cloud (EC2) is an example of a SaaS product.</p>
-<button onclick="check(this,false)">True</button>
-<button onclick="check(this,true)">False</button>
-<div class="result"></div>
-</div>
-
-<h3>Choose the best Answers</h3>
-
-<div class="question" data-ar="(c)ما هي السمة الأساسية للحوسبة السحابية؟الخدمة عند الطلب">
-<p>11. What is a fundamental characteristic of cloud computing?</p>
-<button onclick="check(this,false)">a) Manual resource allocation</button>
-<button onclick="check(this,false)">b) Limited scalability</button>
-<button onclick="check(this,true)">c) On-demand self-service</button>
-<button onclick="check(this,false)">d) High cost for all users</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="HaaSأي مما يلي ليس نموذج خدمة سحابية؟">
-<p>12. Which of the following is NOT a cloud service model?</p>
-<button onclick="check(this,false)">a) Software-as-a-Service (SaaS)</button>
-<button onclick="check(this,false)">b) Platform-as-a-Service (PaaS)</button>
-<button onclick="check(this,false)">c) Infrastructure-as-a-Service (IaaS)</button>
-<button onclick="check(this,true)">d) Hardware-as-a-Service (HaaS)</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="(c)ما هي الفائدة الأساسية للمحاكاة الافتراضية في الحوسبة السحابية؟عزل الموارد">
-<p>13. What is the primary benefit of virtualization in cloud computing?</p>
-<button onclick="check(this,false)">a) Increased physical hardware usage</button>
-<button onclick="check(this,false)">b) Increased operational cost</button>
-<button onclick="check(this,true)">c) Resource isolation and efficient utilization</button>
-<button onclick="check(this,false)">d) Decreased server availability</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="Hybrid cloudأي نموذج سحابي يسمح للمؤسسة باستخدام كل من السحب الخاصة والعامة؟">
-<p>14. Which cloud model allows an organization to use both private and public clouds?</p>
-<button onclick="check(this,true)">a) Hybrid cloud</button>
-<button onclick="check(this,false)">b) Private cloud</button>
-<button onclick="check(this,false)">c) Public cloud</button>
-<button onclick="check(this,false)">d) Community cloud</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="(a)ماذا يفعل موازن الحمل في بيئة سحابية؟ يوزع الحمل">
-<p>15. What does a Load Balancer do in a cloud environment?</p>
-<button onclick="check(this,true)">a) Distributes incoming network traffic across multiple servers</button>
-<button onclick="check(this,false)">b) Increases network latency</button>
-<button onclick="check(this,false)">c) Decreases security in data centers</button>
-<button onclick="check(this,false)">d) Reduces server performance</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="سحابة خاصة(b) أي نوع من السحابة تملكه وتستخدمه مؤسسة واحدة؟">
-<p>16. Which type of cloud is owned and used by a single organization?</p>
-<button onclick="check(this,false)">a) Public cloud</button>
-<button onclick="check(this,true)">b) Private cloud</button>
-<button onclick="check(this,false)">c) Hybrid cloud</button>
-<button onclick="check(this,false)">d) Community cloud</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="(b)ما هو مثال على؟مستندات كوكل SaaS">
-<p>17. What is an example of SaaS?</p>
-<button onclick="check(this,false)">a) Microsoft Azure</button>
-<button onclick="check(this,true)">b) Google Docs</button>
-<button onclick="check(this,false)">c) VMware</button>
-<button onclick="check(this,false)">d) OpenStack</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="(b)ماهيه الميزة الرئيسية لــ؟ نشر التطبيقات بدون إدارة العتادPaas">
-<p>18. What is a key feature of PaaS?</p>
-<button onclick="check(this,false)">a) Provides computing infrastructure only</button>
-<button onclick="check(this,true)">b) Allows developers to deploy applications without managing underlying hardware</button>
-<button onclick="check(this,false)">c) Only provides storage services</button>
-<button onclick="check(this,false)">d) It does not allow application development</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="(c)أي مما يلي هو عيب في الحوسبة السحابية؟الاعتماد على الإنترنت">
-<p>19. Which of the following is a disadvantage of cloud computing?</p>
-<button onclick="check(this,false)">a) High initial infrastructure cost</button>
-<button onclick="check(this,false)">b) Limited availability of services</button>
-<button onclick="check(this,true)">c) Dependency on internet connectivity</button>
-<button onclick="check(this,false)">d) Poor scalability</button>
-<div class="result"></div>
-</div>
-
-<div class="question" data-ar="(b)ما هو الدور الرئيسي لمركز البيانات في الحوسبة السحابية؟استضافة الخدمات">
-<p>20. What is the main role of a data center in cloud computing?</p>
-<button onclick="check(this,false)">a) Storing local files for personal use</button>
-<button onclick="check(this,true)">b) Hosting cloud services and managing resources</button>
-<button onclick="check(this,false)">c) Reducing computing power of organizations</button>
-<button onclick="check(this,false)">d) Eliminating the need for networking</button>
-<div class="result"></div>
-</div>
-
-<script>
-let score = 0;
-let total = 20;
-
-function check(btn, correct) {
-    let parent = btn.parentElement;
-
-    if (parent.classList.contains("answered")) return;
-    parent.classList.add("answered");
-
-    let resultBox = parent.querySelector(".result");
-    let translation = parent.getAttribute("data-ar");
-
-    if (correct) {
-        parent.classList.add("correct");
-        score++;
-        resultBox.innerHTML = "✅ Correct | صحيح<br>" + translation;
-    } else {
-        parent.classList.add("wrong");
-        resultBox.innerHTML = "❌ Wrong | خطأ<br>" + translation;
-    }
-
-    document.getElementById("scoreBox").innerText = "Score: " + score + " / " + total;
-}
-</script>
-
+    <div id="scoreBox">النتيجة: 0 / 57</div>
+    <h2>الاختبار الشامل (الحوسبة السحابية)</h2>
+    <div id="quiz-container"></div>
 </div>
 
 <div class="footer">
-<a href="https://www.instagram.com/h94g/" target="_blank">Developed by <strong>حيدر الخفاجي</strong> </a>
+    Developed by <a href="https://www.instagram.com/h94g/" target="_blank">حيدر الخفاجي</a>
 </div>
 
+<script>
+const questions = [
+    // ==========================================
+    // Section 1: Multiple Choice Questions (1-15)
+    // ==========================================
+    { q: "What is a fundamental characteristic of cloud computing?", arQ: "ما هي السمة الأساسية للحوسبة السحابية؟", options: [
+        { en: "Manual resource allocation", ar: "تخصيص الموارد يدوياً", correct: false },
+        { en: "Limited scalability", ar: "قابلية توسع محدودة", correct: false },
+        { en: "On-demand self-service", ar: "الخدمة الذاتية عند الطلب", correct: true },
+        { en: "High cost for all users", ar: "تكلفة عالية لجميع المستخدمين", correct: false }
+    ]},
+    { q: "Which of the following is NOT a cloud service model?", arQ: "أي مما يلي لا يعتبر نموذجاً لخدمات السحابة؟", options: [
+        { en: "Software-as-a-Service (SaaS)", ar: "البرمجيات كخدمة (SaaS)", correct: false },
+        { en: "Platform-as-a-Service (PaaS)", ar: "المنصة كخدمة (PaaS)", correct: false },
+        { en: "Infrastructure-as-a-Service (IaaS)", ar: "البنية التحتية كخدمة (IaaS)", correct: false },
+        { en: "Hardware-as-a-Service (HaaS)", ar: "الأجهزة كخدمة (HaaS)", correct: true }
+    ]},
+    { q: "What is the primary benefit of virtualization in cloud computing?", arQ: "ما هي الفائدة الأساسية للمحاكاة الافتراضية (Virtualization) في الحوسبة السحابية؟", options: [
+        { en: "Increased physical hardware usage", ar: "زيادة استخدام الأجهزة المادية", correct: false },
+        { en: "Increased operational cost", ar: "زيادة تكلفة التشغيل", correct: false },
+        { en: "Resource isolation and efficient utilization", ar: "عزل الموارد والاستخدام الفعال", correct: true },
+        { en: "Decreased server availability", ar: "انخفاض توفر الخادم", correct: false }
+    ]},
+    { q: "Which cloud model allows an organization to use both private and public clouds?", arQ: "أي نموذج سحابي يسمح للمؤسسة باستخدام كل من السحابة الخاصة والعامة؟", options: [
+        { en: "Hybrid cloud", ar: "السحابة الهجينة", correct: true },
+        { en: "Private cloud", ar: "السحابة الخاصة", correct: false },
+        { en: "Public cloud", ar: "السحابة العامة", correct: false },
+        { en: "Community cloud", ar: "سحابة المجتمع", correct: false }
+    ]},
+    { q: "What does a Load Balancer do in a cloud environment?", arQ: "ما هو دور موازن الحمل (Load Balancer) في بيئة السحابة؟", options: [
+        { en: "Distributes incoming network traffic across multiple servers", ar: "يوزع حركة مرور الشبكة الواردة عبر خوادم متعددة", correct: true },
+        { en: "Increases network latency", ar: "يزيد من وقت انتقال الشبكة (الكمون)", correct: false },
+        { en: "Decreases security in data centers", ar: "يقلل الأمان في مراكز البيانات", correct: false },
+        { en: "Reduces server performance", ar: "يقلل من أداء الخادم", correct: false }
+    ]},
+    { q: "Which type of cloud is owned and used by a single organization?", arQ: "أي نوع من السحابة مملوك ويستخدم من قبل مؤسسة واحدة؟", options: [
+        { en: "Public cloud", ar: "السحابة العامة", correct: false },
+        { en: "Private cloud", ar: "السحابة الخاصة", correct: true },
+        { en: "Hybrid cloud", ar: "السحابة الهجينة", correct: false },
+        { en: "Community cloud", ar: "سحابة المجتمع", correct: false }
+    ]},
+    { q: "What is an example of SaaS?", arQ: "ما هو مثال على البرمجيات كخدمة (SaaS)؟", options: [
+        { en: "Microsoft Azure", ar: "مايكروسوفت أزور", correct: false },
+        { en: "Google Docs", ar: "مستندات جوجل", correct: true },
+        { en: "VMware", ar: "في إم وير", correct: false },
+        { en: "OpenStack", ar: "أوبن ستاك", correct: false }
+    ]},
+    { q: "What is a key feature of PaaS?", arQ: "ما هي الميزة الرئيسية للمنصة كخدمة (PaaS)؟", options: [
+        { en: "Provides computing infrastructure only", ar: "توفر البنية التحتية للحوسبة فقط", correct: false },
+        { en: "Allows developers to deploy applications without managing underlying hardware", ar: "تسمح للمطورين بنشر التطبيقات دون إدارة الأجهزة الأساسية", correct: true },
+        { en: "Only provides storage services", ar: "توفر خدمات التخزين فقط", correct: false },
+        { en: "It does not allow application development", ar: "لا تسمح بتطوير التطبيقات", correct: false }
+    ]},
+    { q: "Which of the following is a disadvantage of cloud computing?", arQ: "أي مما يلي يعتبر من عيوب الحوسبة السحابية؟", options: [
+        { en: "High initial infrastructure cost", ar: "تكلفة البنية التحتية الأولية العالية", correct: false },
+        { en: "Limited availability of services", ar: "محدودية توفر الخدمات", correct: false },
+        { en: "Dependency on internet connectivity", ar: "الاعتماد على الاتصال بالإنترنت", correct: true },
+        { en: "Poor scalability", ar: "ضعف قابلية التوسع", correct: false }
+    ]},
+    { q: "What is the main role of a data center in cloud computing?", arQ: "ما هو الدور الرئيسي لمركز البيانات في الحوسبة السحابية؟", options: [
+        { en: "Storing local files for personal use", ar: "تخزين الملفات المحلية للاستخدام الشخصي", correct: false },
+        { en: "Hosting cloud services and managing resources", ar: "استضافة الخدمات السحابية وإدارة الموارد", correct: true },
+        { en: "Reducing computing power of organizations", ar: "تقليل قوة الحوسبة للمؤسسات", correct: false },
+        { en: "Eliminating the need for networking", ar: "القضاء على الحاجة إلى الشبكات", correct: false }
+    ]},
+    { q: "What is the purpose of a Virtual Machine (VM) in cloud computing?", arQ: "ما هو الغرض من الآلة الافتراضية (VM) في الحوسبة السحابية؟", options: [
+        { en: "To run multiple operating systems on a single physical machine", ar: "تشغيل أنظمة تشغيل متعددة على جهاز مادي واحد", correct: true },
+        { en: "To replace cloud servers", ar: "لاستبدال الخوادم السحابية", correct: false },
+        { en: "To provide unlimited storage", ar: "لتوفير تخزين غير محدود", correct: false },
+        { en: "To eliminate network traffic", ar: "للقضاء على حركة مرور الشبكة", correct: false }
+    ]},
+    { q: "What does elasticity in cloud computing refer to?", arQ: "إلى ماذا تشير المرونة (Elasticity) في الحوسبة السحابية؟", options: [
+        { en: "The ability to shrink infrastructure permanently", ar: "القدرة على تقليص البنية التحتية بشكل دائم", correct: false },
+        { en: "The capability to dynamically allocate resources based on demand", ar: "القدرة على تخصيص الموارد ديناميكياً بناءً على الطلب", correct: true },
+        { en: "Fixed computing power availability", ar: "توفر قوة حوسبة ثابتة", correct: false },
+        { en: "Static allocation of hardware resources", ar: "تخصيص ثابت لموارد الأجهزة", correct: false }
+    ]},
+    { q: "Which of the following is a common challenge in cloud computing?", arQ: "أي مما يلي يمثل تحدياً شائعاً في الحوسبة السحابية؟", options: [
+        { en: "Lack of automation", ar: "نقص الأتمتة", correct: false },
+        { en: "Security and privacy concerns", ar: "مخاوف الأمان والخصوصية", correct: true },
+        { en: "No need for storage management", ar: "عدم الحاجة لإدارة التخزين", correct: false },
+        { en: "Low availability", ar: "انخفاض التوفر", correct: false }
+    ]},
+    { q: "What is an example of IaaS?", arQ: "ما هو مثال على البنية التحتية كخدمة (IaaS)؟", options: [
+        { en: "Google Drive", ar: "جوجل درايف", correct: false },
+        { en: "Amazon EC2", ar: "أمازون EC2", correct: true },
+        { en: "Microsoft Office 365", ar: "مايكروسوفت أوفيس 365", correct: false },
+        { en: "Facebook API", ar: "واجهة برمجة تطبيقات فيسبوك", correct: false }
+    ]},
+    { q: "What is the primary reason organizations adopt cloud computing?", arQ: "ما هو السبب الرئيسي لتبني المؤسسات للحوسبة السحابية؟", options: [
+        { en: "To increase IT infrastructure costs", ar: "لزيادة تكاليف البنية التحتية لتكنولوجيا المعلومات", correct: false },
+        { en: "To reduce dependency on the internet", ar: "لتقليل الاعتماد على الإنترنت", correct: false },
+        { en: "To improve scalability and flexibility", ar: "لتحسين قابلية التوسع والمرونة", correct: true },
+        { en: "To avoid virtualization", ar: "لتجنب المحاكاة الافتراضية", correct: false }
+    ]},
+
+    // ==========================================
+    // Section 2: True or False Questions (1-14)
+    // ==========================================
+    { q: "Cloud computing transforms IT from a product to a service.", arQ: "الحوسبة السحابية تحول تكنولوجيا المعلومات من منتج إلى خدمة.", options: [
+        { en: "True", ar: "صح", correct: true },
+        { en: "False", ar: "خطأ", correct: false }
+    ]},
+    { q: "A data center consists only of servers and does not require additional infrastructure like cooling or security.", arQ: "مركز البيانات يتكون فقط من خوادم ولا يتطلب بنية تحتية إضافية مثل التبريد أو الأمان.", options: [
+        { en: "True", ar: "صح", correct: false },
+        { en: "False", ar: "خطأ (يتطلب تبريد، أمان، إدارة طاقة، وشبكات)", correct: true }
+    ]},
+    { q: "Infrastructure-as-a-Service (IaaS) provides users with a complete software application over the internet.", arQ: "البنية التحتية كخدمة (IaaS) توفر للمستخدمين تطبيقاً برمجياً كاملاً عبر الإنترنت.", options: [
+        { en: "True", ar: "صح", correct: false },
+        { en: "False", ar: "خطأ (IaaS توفر موارد حوسبة مثل الأجهزة الافتراضية، التخزين، والشبكات)", correct: true }
+    ]},
+    { q: "Public clouds offer more security than private clouds.", arQ: "السحابات العامة توفر أماناً أكثر من السحابات الخاصة.", options: [
+        { en: "True", ar: "صح", correct: false },
+        { en: "False", ar: "خطأ (السحابات الخاصة تعتبر بشكل عام أكثر أماناً)", correct: true }
+    ]},
+    { q: "SaaS applications require users to install software on their personal computers.", arQ: "تطبيقات SaaS تتطلب من المستخدمين تثبيت برامج على أجهزة الكمبيوتر الشخصية الخاصة بهم.", options: [
+        { en: "True", ar: "صح", correct: false },
+        { en: "False", ar: "خطأ (تطبيقات SaaS تعمل على السحابة ويتم الوصول إليها عبر المتصفحات)", correct: true }
+    ]},
+    { q: "A blade server is a type of server designed for modularity and high density in data centers.", arQ: "الخادم النصلي (Blade Server) هو نوع من الخوادم المصممة للوحدات النمطية والكثافة العالية في مراكز البيانات.", options: [
+        { en: "True", ar: "صح", correct: true },
+        { en: "False", ar: "خطأ", correct: false }
+    ]},
+    { q: "Virtualization is a key technology enabling IaaS in cloud computing.", arQ: "المحاكاة الافتراضية هي تقنية رئيسية تتيح البنية التحتية كخدمة (IaaS) في الحوسبة السحابية.", options: [
+        { en: "True", ar: "صح", correct: true },
+        { en: "False", ar: "خطأ", correct: false }
+    ]},
+    { q: "Most data center network traffic stays inside the data center rather than going to external networks.", arQ: "تظل معظم حركة مرور شبكة مركز البيانات داخل مركز البيانات بدلاً من الانتقال إلى شبكات خارجية.", options: [
+        { en: "True", ar: "صح (حوالي 80٪ من حركة المرور تبقى داخلية)", correct: true },
+        { en: "False", ar: "خطأ", correct: false }
+    ]},
+    { q: "The main benefit of cloud computing is reducing the need for IT personnel.", arQ: "الفائدة الرئيسية للحوسبة السحابية هي تقليل الحاجة إلى موظفي تكنولوجيا المعلومات.", options: [
+        { en: "True", ar: "صح", correct: false },
+        { en: "False", ar: "خطأ (لا تزال هناك حاجة لموظفي تكنولوجيا المعلومات للمراقبة، الأمان، إلخ)", correct: true }
+    ]},
+    { q: "Amazon Web Services (AWS) Elastic Compute Cloud (EC2) is an example of a SaaS product.", arQ: "يعد Amazon Web Services (AWS) Elastic Compute Cloud (EC2) مثالاً على منتج SaaS.", options: [
+        { en: "True", ar: "صح", correct: false },
+        { en: "False", ar: "خطأ (EC2 هو مثال على IaaS)", correct: true }
+    ]},
+    { q: "Hybrid clouds combine features of both private and public clouds.", arQ: "تجمع السحابات الهجينة بين ميزات السحابات الخاصة والعامة.", options: [
+        { en: "True", ar: "صح", correct: true },
+        { en: "False", ar: "خطأ", correct: false }
+    ]},
+    { q: "Cloud bursting is when a private cloud temporarily uses public cloud resources to handle peak demand.", arQ: "التوسع السحابي (Cloud bursting) هو عندما تستخدم سحابة خاصة مؤقتاً موارد السحابة العامة للتعامل مع ذروة الطلب.", options: [
+        { en: "True", ar: "صح", correct: true },
+        { en: "False", ar: "خطأ", correct: false }
+    ]},
+    { q: "Communication latency in a data center comes mostly from the speed of light.", arQ: "ينتج وقت انتقال الاتصال (Latency) في مركز البيانات في الغالب عن سرعة الضوء.", options: [
+        { en: "True", ar: "صح", correct: false },
+        { en: "False", ar: "خطأ (الكمون يأتي بشكل أساسي من التبديل، وقوف الطوابير، وازدحام الشبكة)", correct: true }
+    ]},
+    { q: "PaaS solutions provide an environment for developers to build and deploy applications without managing underlying hardware.", arQ: "توفر حلول PaaS بيئة للمطورين لإنشاء ونشر التطبيقات دون إدارة الأجهزة الأساسية.", options: [
+        { en: "True", ar: "صح", correct: true },
+        { en: "False", ar: "خطأ", correct: false }
+    ]},
+
+    // ==========================================
+    // Section 3: Fill in the Blanks
+    // ==========================================
+    { q: "Cloud computing is the delivery of computing as a ________ rather than a product.", arQ: "الحوسبة السحابية هي تقديم الحوسبة كـ ________ بدلاً من منتج.", options: [
+        { en: "hardware", ar: "جهاز", correct: false },
+        { en: "service", ar: "خدمة", correct: true },
+        { en: "network", ar: "شبكة", correct: false },
+        { en: "software", ar: "برنامج", correct: false }
+    ]},
+    { q: "The three main cloud service models are ________.", arQ: "نماذج خدمات السحابة الرئيسية الثلاثة هي ________.", options: [
+        { en: "Public, Private, Hybrid", ar: "عامة، خاصة، هجينة", correct: false },
+        { en: "LAN, WAN, MAN", ar: "LAN, WAN, MAN", correct: false },
+        { en: "SaaS, PaaS, IaaS", ar: "SaaS، PaaS، IaaS", correct: true },
+        { en: "Hardware, Software, Network", ar: "أجهزة، برمجيات، شبكة", correct: false }
+    ]},
+    { q: "A ________ is a facility that houses computer systems, networking, and storage infrastructure to support cloud computing.", arQ: "الـ ________ هي منشأة تضم أنظمة الكمبيوتر والشبكات والبنية التحتية للتخزين لدعم الحوسبة السحابية.", options: [
+        { en: "load balancer", ar: "موازن الحمل", correct: false },
+        { en: "virtual machine", ar: "الآلة الافتراضية", correct: false },
+        { en: "blade server", ar: "الخادم النصلي", correct: false },
+        { en: "data center", ar: "مركز البيانات", correct: true }
+    ]},
+    { q: "In cloud computing, ________ technology enables multiple virtual machines to run on a single physical server.", arQ: "في الحوسبة السحابية، تقنية ________ تمكن آلات افتراضية متعددة من العمل على خادم مادي واحد.", options: [
+        { en: "virtualization", ar: "المحاكاة الافتراضية", correct: true },
+        { en: "automation", ar: "الأتمتة", correct: false },
+        { en: "networking", ar: "الشبكات", correct: false },
+        { en: "security", ar: "الأمان", correct: false }
+    ]},
+    { q: "A ________ cloud is a type of cloud computing used exclusively by a single organization.", arQ: "السحابة ________ هي نوع من الحوسبة السحابية يستخدم حصرياً من قبل مؤسسة واحدة.", options: [
+        { en: "private", ar: "الخاصة", correct: true },
+        { en: "public", ar: "العامة", correct: false },
+        { en: "hybrid", ar: "الهجينة", correct: false },
+        { en: "community", ar: "المجتمعية", correct: false }
+    ]},
+    { q: "Amazon EC2 is an example of an ________ cloud computing service.", arQ: "أمازون EC2 هو مثال على خدمة الحوسبة السحابية ________.", options: [
+        { en: "SaaS", ar: "SaaS", correct: false },
+        { en: "PaaS", ar: "PaaS", correct: false },
+        { en: "IaaS", ar: "البنية التحتية كخدمة (IaaS)", correct: true },
+        { en: "HaaS", ar: "HaaS", correct: false }
+    ]},
+    { q: "A ________ is a stripped-down computer designed for modularity and is often housed in a blade enclosure.", arQ: "الـ ________ هو كمبيوتر مجرد مصمم للوحدات النمطية وغالباً ما يتم وضعه في حاوية نصلية.", options: [
+        { en: "blade server", ar: "الخادم النصلي", correct: true },
+        { en: "data center", ar: "مركز البيانات", correct: false },
+        { en: "load balancer", ar: "موازن الحمل", correct: false },
+        { en: "virtual machine", ar: "الآلة الافتراضية", correct: false }
+    ]},
+    { q: "A key advantage of cloud computing is its ability to scale resources dynamically, a concept known as ________.", arQ: "الميزة الرئيسية للحوسبة السحابية هي قدرتها على توسيع الموارد ديناميكياً، وهو مفهوم يعرف بـ ________.", options: [
+        { en: "virtualization", ar: "المحاكاة الافتراضية", correct: false },
+        { en: "latency", ar: "وقت الانتقال", correct: false },
+        { en: "elasticity", ar: "المرونة", correct: true },
+        { en: "cloud bursting", ar: "التوسع السحابي", correct: false }
+    ]},
+    { q: "In data centers, the main network bottleneck is usually the ________.", arQ: "في مراكز البيانات، الاختناق الرئيسي للشبكة عادة ما يكون في ________.", options: [
+        { en: "processor", ar: "المعالج", correct: false },
+        { en: "network", ar: "الشبكة", correct: true },
+        { en: "storage", ar: "التخزين", correct: false },
+        { en: "cooling system", ar: "نظام التبريد", correct: false }
+    ]},
+    { q: "The term ________ refers to the practice of using a private cloud for normal operations but shifting to a public cloud during peak loads.", arQ: "مصطلح ________ يشير إلى ممارسة استخدام السحابة الخاصة للعمليات العادية مع الانتقال إلى السحابة العامة أثناء ذروة الأحمال.", options: [
+        { en: "cloud bursting", ar: "التوسع السحابي المؤقت", correct: true },
+        { en: "load balancing", ar: "موازنة الحمل", correct: false },
+        { en: "virtualization", ar: "المحاكاة الافتراضية", correct: false },
+        { en: "hybrid scaling", ar: "التوسع الهجين", correct: false }
+    ]},
+    { q: "The process of distributing network traffic across multiple servers to optimize resource utilization is called ________.", arQ: "عملية توزيع حركة مرور الشبكة عبر خوادم متعددة لتحسين استخدام الموارد تسمى ________.", options: [
+        { en: "elasticity", ar: "المرونة", correct: false },
+        { en: "virtualization", ar: "المحاكاة الافتراضية", correct: false },
+        { en: "load balancing", ar: "موازنة الحمل", correct: true },
+        { en: "cloud bursting", ar: "التوسع السحابي", correct: false }
+    ]},
+    { q: "Google App Engine is an example of a ________ cloud service model.", arQ: "محرك تطبيقات جوجل هو مثال على نموذج خدمة السحابة ________.", options: [
+        { en: "SaaS", ar: "SaaS", correct: false },
+        { en: "IaaS", ar: "IaaS", correct: false },
+        { en: "PaaS", ar: "المنصة كخدمة (PaaS)", correct: true },
+        { en: "HaaS", ar: "HaaS", correct: false }
+    ]},
+    { q: "Security and ________ concerns are major challenges in cloud computing adoption.", arQ: "تعتبر مخاوف الأمان و ________ تحديات رئيسية في تبني الحوسبة السحابية.", options: [
+        { en: "latency", ar: "وقت الانتقال", correct: false },
+        { en: "privacy", ar: "الخصوصية", correct: true },
+        { en: "speed", ar: "السرعة", correct: false },
+        { en: "cost", ar: "التكلفة", correct: false }
+    ]},
+    { q: "SaaS applications are typically accessed via a ________ rather than being installed on a local device.", arQ: "يتم الوصول إلى تطبيقات SaaS عادةً عبر ________ بدلاً من تثبيتها على جهاز محلي.", options: [
+        { en: "virtual machine", ar: "آلة افتراضية", correct: false },
+        { en: "command line", ar: "سطر الأوامر", correct: false },
+        { en: "web browser", ar: "متصفح الويب", correct: true },
+        { en: "local server", ar: "خادم محلي", correct: false }
+    ]},
+
+    // ==========================================
+    // Section 4: Match the Following
+    // ==========================================
+    { q: "Select the correct description for: Cloud Computing", arQ: "اختر الوصف الصحيح لـ: الحوسبة السحابية", options: [
+        { en: "N. A computing model that delivers IT resources as a service over the internet.", ar: "نموذج حوسبة يقدم موارد تكنولوجيا المعلومات كخدمة عبر الإنترنت.", correct: true },
+        { en: "F. Cloud infrastructure dedicated for use by a single organization.", ar: "بنية تحتية سحابية مخصصة للاستخدام من قبل مؤسسة واحدة.", correct: false },
+        { en: "L. A modular, high-density server used in data centers.", ar: "خادم معياري عالي الكثافة يستخدم في مراكز البيانات.", correct: false },
+        { en: "I. A system that distributes network traffic across multiple servers.", ar: "نظام يوزع حركة مرور الشبكة عبر خوادم متعددة.", correct: false }
+    ]},
+    { q: "Select the correct description for: SaaS", arQ: "اختر الوصف الصحيح لـ: البرمجيات كخدمة (SaaS)", options: [
+        { en: "E. A cloud service that provides a development environment for application developers.", ar: "خدمة سحابية توفر بيئة تطوير لمطوري التطبيقات.", correct: false },
+        { en: "A. A model where users can access applications over the internet without installation.", ar: "نموذج يمكن للمستخدمين من خلاله الوصول إلى التطبيقات عبر الإنترنت دون تثبيت.", correct: true },
+        { en: "B. A cloud computing model that provides virtualized computing resources on demand.", ar: "نموذج حوسبة سحابية يوفر موارد حوسبة افتراضية عند الطلب.", correct: false },
+        { en: "G. Cloud services that are available to anyone over the internet.", ar: "خدمات سحابية متاحة لأي شخص عبر الإنترنت.", correct: false }
+    ]},
+    { q: "Select the correct description for: PaaS", arQ: "اختر الوصف الصحيح لـ: المنصة كخدمة (PaaS)", options: [
+        { en: "C. A key technology that allows multiple operating systems to run on a single physical machine.", ar: "تقنية رئيسية تسمح بتشغيل أنظمة تشغيل متعددة على جهاز مادي واحد.", correct: false },
+        { en: "A. A model where users can access applications over the internet without installation.", ar: "نموذج يمكن للمستخدمين من خلاله الوصول إلى التطبيقات عبر الإنترنت دون تثبيت.", correct: false },
+        { en: "E. A cloud service that provides a development environment for application developers.", ar: "خدمة سحابية توفر بيئة تطوير لمطوري التطبيقات.", correct: true },
+        { en: "H. A cloud model that combines both public and private cloud resources.", ar: "نموذج سحابي يجمع بين موارد السحابة العامة والخاصة.", correct: false }
+    ]},
+    { q: "Select the correct description for: IaaS", arQ: "اختر الوصف الصحيح لـ: البنية التحتية كخدمة (IaaS)", options: [
+        { en: "D. A computing facility that houses servers, networking equipment, and storage.", ar: "مرفق حوسبة يضم الخوادم ومعدات الشبكات والتخزين.", correct: false },
+        { en: "B. A cloud computing model that provides virtualized computing resources on demand.", ar: "نموذج حوسبة سحابية يوفر موارد حوسبة افتراضية عند الطلب.", correct: true },
+        { en: "O. A cloud platform provided by Google that allows developers to build and host applications.", ar: "منصة سحابية مقدمة من Google تسمح للمطورين بإنشاء واستضافة التطبيقات.", correct: false },
+        { en: "J. A method of temporarily using public cloud resources when a private cloud reaches capacity.", ar: "طريقة لاستخدام موارد السحابة العامة مؤقتًا عندما تصل السحابة الخاصة إلى سعتها.", correct: false }
+    ]},
+    { q: "Select the correct description for: Virtualization", arQ: "اختر الوصف الصحيح لـ: المحاكاة الافتراضية", options: [
+        { en: "C. A key technology that allows multiple operating systems to run on a single physical machine.", ar: "تقنية رئيسية تسمح بتشغيل أنظمة تشغيل متعددة على جهاز مادي واحد.", correct: true },
+        { en: "I. A system that distributes network traffic across multiple servers.", ar: "نظام يوزع حركة مرور الشبكة عبر خوادم متعددة.", correct: false },
+        { en: "K. A cloud-based virtual machine service provided by Amazon Web Services (AWS).", ar: "خدمة آلة افتراضية قائمة على السحابة تقدمها AWS.", correct: false },
+        { en: "F. Cloud infrastructure dedicated for use by a single organization.", ar: "بنية تحتية سحابية مخصصة للاستخدام من قبل مؤسسة واحدة.", correct: false }
+    ]},
+    { q: "Select the correct description for: Data Center", arQ: "اختر الوصف الصحيح لـ: مركز البيانات", options: [
+        { en: "L. A modular, high-density server used in data centers.", ar: "خادم معياري عالي الكثافة يستخدم في مراكز البيانات.", correct: false },
+        { en: "D. A computing facility that houses servers, networking equipment, and storage.", ar: "مرفق حوسبة يضم الخوادم ومعدات الشبكات والتخزين.", correct: true },
+        { en: "H. A cloud model that combines both public and private cloud resources.", ar: "نموذج سحابي يجمع بين موارد السحابة العامة والخاصة.", correct: false },
+        { en: "N. A computing model that delivers IT resources as a service over the internet.", ar: "نموذج حوسبة يقدم موارد تكنولوجيا المعلومات كخدمة عبر الإنترنت.", correct: false }
+    ]},
+    { q: "Select the correct description for: Private Cloud", arQ: "اختر الوصف الصحيح لـ: السحابة الخاصة", options: [
+        { en: "G. Cloud services that are available to anyone over the internet.", ar: "خدمات سحابية متاحة لأي شخص عبر الإنترنت.", correct: false },
+        { en: "F. Cloud infrastructure dedicated for use by a single organization.", ar: "بنية تحتية سحابية مخصصة للاستخدام من قبل مؤسسة واحدة.", correct: true },
+        { en: "O. A cloud platform provided by Google that allows developers to build and host applications.", ar: "منصة سحابية مقدمة من Google تسمح للمطورين بإنشاء واستضافة التطبيقات.", correct: false },
+        { en: "J. A method of temporarily using public cloud resources when a private cloud reaches capacity.", ar: "طريقة لاستخدام موارد السحابة العامة مؤقتًا عندما تصل السحابة الخاصة إلى سعتها.", correct: false }
+    ]},
+    { q: "Select the correct description for: Public Cloud", arQ: "اختر الوصف الصحيح لـ: السحابة العامة", options: [
+        { en: "H. A cloud model that combines both public and private cloud resources.", ar: "نموذج سحابي يجمع بين موارد السحابة العامة والخاصة.", correct: false },
+        { en: "K. A cloud-based virtual machine service provided by Amazon Web Services (AWS).", ar: "خدمة آلة افتراضية قائمة على السحابة تقدمها AWS.", correct: false },
+        { en: "G. Cloud services that are available to anyone over the internet.", ar: "خدمات سحابية متاحة لأي شخص عبر الإنترنت.", correct: true },
+        { en: "A. A model where users can access applications over the internet without installation.", ar: "نموذج يمكن للمستخدمين من خلاله الوصول إلى التطبيقات عبر الإنترنت دون تثبيت.", correct: false }
+    ]},
+    { q: "Select the correct description for: Hybrid Cloud", arQ: "اختر الوصف الصحيح لـ: السحابة الهجينة", options: [
+        { en: "H. A cloud model that combines both public and private cloud resources.", ar: "نموذج سحابي يجمع بين موارد السحابة العامة والخاصة.", correct: true },
+        { en: "E. A cloud service that provides a development environment for application developers.", ar: "خدمة سحابية توفر بيئة تطوير لمطوري التطبيقات.", correct: false },
+        { en: "C. A key technology that allows multiple operating systems to run on a single physical machine.", ar: "تقنية رئيسية تسمح بتشغيل أنظمة تشغيل متعددة على جهاز مادي واحد.", correct: false },
+        { en: "I. A system that distributes network traffic across multiple servers.", ar: "نظام يوزع حركة مرور الشبكة عبر خوادم متعددة.", correct: false }
+    ]},
+    { q: "Select the correct description for: Load Balancer", arQ: "اختر الوصف الصحيح لـ: موازن الحمل", options: [
+        { en: "I. A system that distributes network traffic across multiple servers.", ar: "نظام يوزع حركة مرور الشبكة عبر خوادم متعددة.", correct: true },
+        { en: "J. A method of temporarily using public cloud resources when a private cloud reaches capacity.", ar: "طريقة لاستخدام موارد السحابة العامة مؤقتًا عندما تصل السحابة الخاصة إلى سعتها.", correct: false },
+        { en: "L. A modular, high-density server used in data centers.", ar: "خادم معياري عالي الكثافة يستخدم في مراكز البيانات.", correct: false },
+        { en: "B. A cloud computing model that provides virtualized computing resources on demand.", ar: "نموذج حوسبة سحابية يوفر موارد حوسبة افتراضية عند الطلب.", correct: false }
+    ]},
+    { q: "Select the correct description for: Cloud Bursting", arQ: "اختر الوصف الصحيح لـ: التوسع السحابي المؤقت (Cloud Bursting)", options: [
+        { en: "N. A computing model that delivers IT resources as a service over the internet.", ar: "نموذج حوسبة يقدم موارد تكنولوجيا المعلومات كخدمة عبر الإنترنت.", correct: false },
+        { en: "J. A method of temporarily using public cloud resources when a private cloud reaches capacity.", ar: "طريقة لاستخدام موارد السحابة العامة مؤقتًا عندما تصل السحابة الخاصة إلى سعتها.", correct: true },
+        { en: "F. Cloud infrastructure dedicated for use by a single organization.", ar: "بنية تحتية سحابية مخصصة للاستخدام من قبل مؤسسة واحدة.", correct: false },
+        { en: "D. A computing facility that houses servers, networking equipment, and storage.", ar: "مرفق حوسبة يضم الخوادم ومعدات الشبكات والتخزين.", correct: false }
+    ]},
+    { q: "Select the correct description for: Amazon EC2", arQ: "اختر الوصف الصحيح لـ: أمازون EC2", options: [
+        { en: "K. A cloud-based virtual machine service provided by Amazon Web Services (AWS).", ar: "خدمة آلة افتراضية قائمة على السحابة تقدمها AWS.", correct: true },
+        { en: "O. A cloud platform provided by Google that allows developers to build and host applications.", ar: "منصة سحابية مقدمة من Google تسمح للمطورين بإنشاء واستضافة التطبيقات.", correct: false },
+        { en: "G. Cloud services that are available to anyone over the internet.", ar: "خدمات سحابية متاحة لأي شخص عبر الإنترنت.", correct: false },
+        { en: "A. A model where users can access applications over the internet without installation.", ar: "نموذج يمكن للمستخدمين من خلاله الوصول إلى التطبيقات عبر الإنترنت دون تثبيت.", correct: false }
+    ]},
+    { q: "Select the correct description for: Google App Engine", arQ: "اختر الوصف الصحيح لـ: محرك تطبيقات جوجل", options: [
+        { en: "E. A cloud service that provides a development environment for application developers.", ar: "خدمة سحابية توفر بيئة تطوير لمطوري التطبيقات.", correct: false },
+        { en: "O. A cloud platform provided by Google that allows developers to build and host applications.", ar: "منصة سحابية مقدمة من Google تسمح للمطورين بإنشاء واستضافة التطبيقات.", correct: true },
+        { en: "L. A modular, high-density server used in data centers.", ar: "خادم معياري عالي الكثافة يستخدم في مراكز البيانات.", correct: false },
+        { en: "K. A cloud-based virtual machine service provided by Amazon Web Services (AWS).", ar: "خدمة آلة افتراضية قائمة على السحابة تقدمها AWS.", correct: false }
+    ]},
+    { q: "Select the correct description for: Blade Server", arQ: "اختر الوصف الصحيح لـ: الخادم النصلي (Blade Server)", options: [
+        { en: "C. A key technology that allows multiple operating systems to run on a single physical machine.", ar: "تقنية رئيسية تسمح بتشغيل أنظمة تشغيل متعددة على جهاز مادي واحد.", correct: false },
+        { en: "D. A computing facility that houses servers, networking equipment, and storage.", ar: "مرفق حوسبة يضم الخوادم ومعدات الشبكات والتخزين.", correct: false },
+        { en: "L. A modular, high-density server used in data centers.", ar: "خادم معياري عالي الكثافة يستخدم في مراكز البيانات.", correct: true },
+        { en: "I. A system that distributes network traffic across multiple servers.", ar: "نظام يوزع حركة مرور الشبكة عبر خوادم متعددة.", correct: false }
+    ]}
+];
+
+let score = 0;
+const container = document.getElementById('quiz-container');
+
+function renderQuiz() {
+    questions.forEach((q, index) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.innerHTML = `
+            <button class="translate-btn" onclick="toggleTranslation(${index})">Translate / ترجمة</button>
+            <div id="trans-${index}" class="translation-area"><strong>السؤال:</strong> ${q.arQ}</div>
+            <div class="q-text">${index + 1}. ${q.q}</div>
+            <div id="options-${index}">
+                ${q.options.map((opt, optIdx) => `
+                    <button class="option" onclick="checkAnswer(${index}, ${optIdx}, this, ${opt.correct})">
+                        <span>${opt.en}</span>
+                        <span class="ar-opt">${opt.ar}</span>
+                    </button>
+                `).join('')}
+            </div>
+            <div id="result-${index}" class="result-msg"></div>
+        `;
+        container.appendChild(card);
+    });
+    document.getElementById('scoreBox').innerText = `النتيجة: 0 / ${questions.length}`;
+}
+
+window.checkAnswer = function(qIdx, optIdx, btn, isCorrect) {
+    const parent = document.getElementById(`options-${qIdx}`);
+    if (parent.dataset.answered === "true") return;
+    parent.dataset.answered = "true";
+
+    const allOptions = parent.querySelectorAll('.option');
+    const resultMsg = document.getElementById(`result-${qIdx}`);
+    const correctOpt = questions[qIdx].options.find(o => o.correct);
+
+    // تم إزالة السطر الذي كان يجبر الترجمة على الظهور تلقائياً لكي يعمل الزر بكفاءة
+
+    if (isCorrect) {
+        score++;
+        btn.classList.add('correct');
+        resultMsg.innerHTML = `<span style="color: green;">✅ إجابة صحيحة: ${correctOpt.ar}</span>`;
+    } else {
+        btn.classList.add('wrong');
+        allOptions.forEach(opt => {
+             // إظهار الخيار الصحيح بوضوح
+             if (opt.innerText.includes(correctOpt.en)) opt.classList.add('correct');
+        });
+        resultMsg.innerHTML = `<span style="color: red;">❌ إجابة خاطئة! الصحيح هو: ${correctOpt.en} (${correctOpt.ar})</span>`;
+    }
+    document.getElementById('scoreBox').innerText = `النتيجة: ${score} / ${questions.length}`;
+};
+
+window.toggleTranslation = function(index) {
+    const area = document.getElementById(`trans-${index}`);
+    const optionsAr = document.querySelectorAll(`#options-${index} .ar-opt`);
+    const isVisible = area.style.display === 'block';
+    
+    // يقوم بتبديل الحالة بغض النظر عما إذا تمت الإجابة أم لا
+    area.style.display = isVisible ? 'none' : 'block';
+    optionsAr.forEach(o => o.style.display = isVisible ? 'none' : 'block');
+};
+
+renderQuiz();
+</script>
 </body>
 </html>
